@@ -19,3 +19,7 @@ console.log(year);
 console.log(typeof year); // number
 
 console.log(typeof null); // object
+
+year = null;
+console.log(year); //null value
+console.log(typeof year); // data type object
