@@ -1,0 +1,134 @@
+'use strict';
+
+const ordersSet = new Set([
+    'Pasta',
+    'Pizza',
+    'Pizza',
+    'Risotto',
+    'Pasta',
+    'Pizza'
+]);
+console.log(ordersSet);
+console.log(new Set('Jonas'));
+console.log(ordersSet.size);
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+ordersSet.delete('Risotto');
+// ordersSet.clear();
+console.log(ordersSet);
+for (const order of ordersSet) 
+    console.log(order);
+
+// const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']; const
+// openingHours= {     [weekdays[3]]: {         open: 12,         close: 22
+// },     [weekdays[4]]: {         open: 11,         close: 23     },
+// [weekdays[5]]: {         open: 0,  open 24 hours         close: 24,     } };
+// console.log(openingHours); const restaurant = {     name: 'Classico
+// Italiano',     location: 'Via Angelo Tavanti 23, Firenze, Italy',
+// categories: [         'Italian', 'Pizzeria', 'Vegetarian', 'Organic'     ],
+// starterMenu: [         'Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese
+// Salad'     ],     mainMenu: [         'Pizza', 'Pasta', 'Risotto'     ],
+// openingHours,     order: function (starterIndex, mainIndex) {         return
+// [             this.starterMenu[starterIndex], this.mainMenu[mainIndex]
+// ]     },     orderDelivery: function ({         starterIndex = 1,
+// mainIndex = 0,         time = '20:00',         address     })     {
+// console.log(             `Order reseived! ${this.starterMenu[starterIndex]}
+// and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+// );     },     orderPasta: function(ing1, ing2, ing3) {
+// console.log(`Her is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`);
+// },     orderPizza: function(mainIngredient, ...otherIngredients) {
+// console.log(mainIngredient);         console.log(otherIngredients);       }
+// }; if (restaurant.openingHours.mon)
+// console.log(restaurant.openingHours.mon.open); if
+// (restaurant.openingHours.fri) {
+// console.log(restaurant.openingHours.fri.open); }
+// console.log(restaurant.openingHours.mon?.open);  undefined
+// console.log(restaurant.openingHours.fri?.open); 11  exeple const days =
+// ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']; for (const day of days) {
+// const open = restaurant.openingHours[day]?.open ?? 'closed';
+// console.log(`On ${day}, we open at ${open}`); }  Mathod
+// console.log(restaurant.order?.(0,1)??'Mathod does not exist');
+// console.log(restaurant.orderRisotto?.(0,1)??'Mathod does not exist');
+// Array// const users = [{ name: 'Jonas', email: 'hello@jonas.io' }];  if
+// (users.length > 0) console.log(users[0].name);  else console.log('user array
+// empty'); console.log(users[0]?.name ?? 'User array empty');  key value for
+// (const [day, { open, close }] of entries) {     console.log(`On ${day} we
+// open at ${open} and close at ${close}`);   }
+// //////////////////////////////////////////////////////////////////  Looping
+// for of  const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// for (const item of menu) {      console.log(item);  }  for (const [i, ...el]
+// of menu.entries()) {      console.log(`${i + 1 } : ${el }`);  }
+// console.log([...menu.entries()]);
+// /////////////////////////////////////////////  const rest1 = {
+// name:'Capri',       numGuests : 20,      numGuests : 0,  }  const rest2 = {
+// name:'La Piazza',      owner : 'Giovanni Rossi',  };  OR assigment  operator
+// rest1.numGuests=rest1.numGuests || 10;   rest2.numGuests=rest2.numGuests ||
+// 10;   rest1.numGuests||=10;   rest2.numGuests||=10;   nulish assigment
+// operator  rest1.numGuests ??= 10;  rest2.numGuests ??= 10;
+// rest1.owner=rest1.owner && '<ANONYMOUS>';  rest2.owner=rest2.owner &&
+// '<ANONYMOUS>';  console.log(rest1);  console.log(rest2);
+// /////////////////////////////////////  restaurant.numGuests=0;  const guests
+// = restaurant.numGuests || 10;  console.log(guests);   Nullish and undifined
+// const guestsCorrect = restaurant.numGuests??10;  console.log(guestsCorrect);
+// Short circuiting//  console.log('--------------OR----------------');
+// console.log(3 || 'Jonas');   3  console.log('' || 'Jonas');   'Jonas'
+// console.log(true || 0);   true  console.log(undefined || null);   null
+// console.log(undefined || 0 || '' || 'Hello' || 23 || null);    'Hello'
+// restaurant.numGuests = 23;  const guests1 = restaurant.numGuests ?
+// restaurant.numGuests : 10;  console.log(guests1);   23
+// console.log('--------------AND----------------');  console.log(0 && 'Jonas');
+// 0  console.log(7 && 'Jonas');   'Jonas'  console.log('Hello' && 23 && null &&
+// 'jonas');   null  if (restaurant.orderPizza) {
+// restaurant.orderPizza('mushrooms', 'spinach');    }    restaurant.orderPizza
+// && restaurant.orderPizza('mushrooms', 'spinach');
+// console.log(restaurant.orderPizza && restaurant.orderPizza('mushrooms',
+// 'spinach')); ////////////////////////////////////////  Rest Pattern  const
+// arr = [1, 2, ...[3, 4]];  const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others);  const [pizza, , risotto, ...otherFood] = [
+// ...restaurant.mainMenu,      ...restaurant.starterMenu,    ];     object
+// const{sat, ...weekdays} = restaurant.openingHours;  console.log(weekdays);
+// restaurant.orderPizza('pishloq', 'pomidor', 'zaytun', 'qo‘ziqorin');
+// /////////////////////////////////  Spread Operators//  const arr  = [ 7, 8,
+// 9];  const badNewArr =[ 1, 2, arr[0], arr[1], arr[2]];
+// console.log(badNewArr);  const newArr = [1, 2, ... arr]  console.log(newArr);
+// console.log(...newArr);  const newMenu = [...restaurant.mainMenu, 'Gnocci']
+// console.log(newMenu);   Coppy array  const mainMenuCoppy =
+// [...restaurant.mainMenu];   join 2 array   const main = [
+// ...restaurant.starterMenu, ...restaurant.mainMenu];   console.log(main);
+// iterables: array, string, map, sets, NOT objects   const str = 'Jonas';
+// const latters = [...str, ' ', 'S'];   console.log(latters);
+// console.log(`${...str} Schedtmann`);   SyntaxError: Unexpected token '...'
+// Real world exeples   const ingradients =  [prompt('Let\s make pasta!
+// Ingradient 1'), prompt('Ingradient 2', ),prompt('Ingradient 3'), ];
+// console.log(ingradients);
+// restaurant.orderPasta(ingradients[0],ingradients[1],ingradients[2],);
+// console.log(restaurant.orderPasta);   restaurant.orderPasta(...ingradients)
+// console.log(restaurant.orderPasta);   Objects  const newRestuarents = {
+// faundedIn: 1998,...restaurant, founder: 'Guissape' }
+// console.log(newRestuarents);  const restaurantCopy = {...restaurant};
+// restaurantCopy.name = 'Resturarante Roma';  console.log(restaurantCopy.name);
+// console.log(restaurant.name); Destructure Object  restaurant.orderDelivery(
+// {time: '22:30', address: 'Via Del Scole , 21', mainIndex: 2, starterIndex: 2}
+// );  restaurant.orderDelivery({address: 'Via Del Scole , 21', starterIndex:
+// 2});  const {name, openingHours, categories} = restaurant;  console.log(name,
+// openingHours, categories);  const {name: restaurantName, openingHours: hours,
+// categories: tags} = restaurant  console.log(restaurantName, hours, tags);
+// Default values  const {      menu = [],      starterMenu: starters = []  } =
+// restaurant;  console.log(menu, starters);   Mutating variables  let a = 111;
+// let b = 999;  const obj = {      a: 23,      b: 7,      c: 14  };  ({a, b} =
+// obj);  console.log(a, b);   Nasted Object const {fri:{open,
+// close}}=openingHours; console.log(fri);   console.log(open, close);  const {
+// fri: {          open: o,          close: c      }  } = openingHours;
+// console.log(o, c);  /////////////////////////// Destructures Array// const
+// arr = [2, 3, 4];  const a = arr[0]; const b = arr[1]; const c = arr[2]; const
+// [x, y, z] = arr;  console.log(x, y, z); console.log(arr); let [main,,
+// secondary] = restaurant  .categories     console     .log(main, secondary);
+// Switching veriables const  temp=main; main = secondary; secondary = temp;
+// [main, secondary] =  [secondary, main] console.log(main, secondary);  Receive
+// 2 return values from  a function const [starter, mainCourse] =
+// restaurant.order(2, 0);  console.log(starter, mainCourse); Nasted
+// destructuring const nasted = [ 2,  4,     [         5, 6     ] ];  const [i,
+// , j] =  nasted; console.log(i, j);  const [i,, [         j, k     ] ] =
+// nasted; console.log(i, j, k); Default  values const [p, q, r]= [8, 9]
+// console.log(p, q, r); const [p
+//  = 1, q = 1, r = 1] = [8, 9] console.log(p, q, r);
