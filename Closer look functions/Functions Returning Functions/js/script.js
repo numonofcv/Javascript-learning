@@ -49,21 +49,3 @@ function validateForm(login, password) {
     successNotify('Your data has been saved!');
   }
 
-  const createNotification = function (type) {
-    return function (message) {
-        const icons = {
-            success: '✅',
-            error: '❌',
-            info: 'ℹ️',
-            warning: '⚠️'
-        };
-        const msgBox = document.getElementById('message-box');
-        msgBox.textContent = ` ${icons[type]} ${message}`;
-        msgBox.style.color = type === 'success' ? 'green' :
-                             type === 'error' ? 'red' :
-                             type === 'warning' ? 'orange' : 'blue';
-    };
-};
-const successNotify = createNotification('success');
-const errorNotify = createNotification('error');
-
